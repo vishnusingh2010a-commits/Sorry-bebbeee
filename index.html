@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I'm Sorry, Baby 💗</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;display:grid;place-items:center;
+ background:linear-gradient(135deg,#ffd6e7,#fff0f5,#ffe0ed);
+ font-family:Arial,sans-serif;text-align:center;color:#a33662;
+ overflow:hidden
+}
+.card{
+ background:#fff;padding:30px 22px;border-radius:30px;
+ width:calc(100% - 36px);max-width:390px;
+ box-shadow:0 15px 45px #d66a8b30;
+ animation:appear .5s ease
+}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.heart{font-size:65px;margin-bottom:15px}
+h1{font-size:27px;line-height:1.3}
+p{font-size:17px;line-height:1.7;color:#914263}
+button{
+ background:#ed6b9b;color:white;border:0;border-radius:30px;
+ padding:14px 24px;font-size:16px;margin:8px;cursor:pointer
+}
+button:active{transform:scale(.97)}
+.small{font-size:12px;color:#c17b98;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="card" id="card">
+ <div class="heart">🥺💗</div>
+ <h1>Hey, my favourite person...</h1>
+ <p>Mujhe tumse kuch kehna hai. ❤️</p>
+ <button onclick="next()">Click here 💌</button>
+ <div class="small">Made with love ♡</div>
+</div>
+<script>
+let page=0;
+const pages=[
+ ["💔🥺","I'm Really Sorry, Baby…",
+ "Mujhse galti ho gayi, aur mujhe sach mein iska afsos hai. ❤️‍🩹",
+ "Ek aur baat kahun? 💗"],
+ ["🧸💕","You Mean So Much to Me…",
+ "Tum meri life ka ek bahut special hissa ho. Main tumhari feelings ki kadar karta hoon. 🫶🏻",
+ "Please meri baat sunogi? 💌"],
+ ["🌷❤️","I Want to Make Things Right",
+ "Main apni galti samajhna aur use sudharna chahta hoon. Tumhari feelings mere liye important hain. 🥹",
+ "Ek last question hai… 💗"],
+ ["💖🥹","Will You Forgive Me?",
+ "Main samajhunga agar tumhe thoda time chahiye. Bas dil se sorry kehna chahta tha. ❤️",
+ ""]
+];
+function next(){
+ page++;
+ if(page>pages.length){page=pages.length}
+ const p=pages[page-1];
+ document.getElementById("card").innerHTML=`
+ <div class="heart">${p[0]}</div>
+ <h1>${p[1]}</h1>
+ <p>${p[2]}</p>
+ ${page<pages.length
+ ? '<button onclick="next()">Next Page 💌</button>'
+ : '<button onclick="finish()">I Forgive You 💗</button><button onclick="time()">I Need Time 🌷</button>'}
+ <div class="small">Made with love ♡</div>`;
+}
+function finish(){
+ document.getElementById("card").innerHTML=`
+ <div class="heart">🥹💖</div>
+ <h1>Thank You, Baby! ❤️</h1>
+ <p>Thank you for hearing me out. Main apni galti sudharne ki poori koshish karunga. 🫶🏻</p>`;
+}
+function time(){
+ document.getElementById("card").innerHTML=`
+ <div class="heart">🌷🫶🏻</div>
+ <h1>I Understand ❤️</h1>
+ <p>Take your time, baby. Main tumhari feelings aur space ki respect karta hoon. 💗</p>`;
+}
+</script>
+</body>
+</html>
